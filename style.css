@@ -1,0 +1,14 @@
+.parent {
+  width: 400px;
+  height: 200px;
+  background-color: red;
+  border: 1px solid #000;
+}
+.child {
+  width: 100px;
+  height: inherit;
+  top: 100px;
+  right: 100px;
+  position: fixed;
+  border: 1px solid #000;
+}
