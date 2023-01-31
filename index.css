@@ -1,0 +1,17 @@
+ul {
+  display: flex;
+  list-style: none;
+  padding-left: 0px;
+  background-color: #999;
+  padding: 20px;
+  border-radius: 10px;
+}
+li {
+  text-align: center;
+  flex-basis: 100px;
+  flex-shrink: ;
+  flex-grow: 1;
+  cursor: pointer;
+  font-weight: bold;
+  color: #eee;
+}
