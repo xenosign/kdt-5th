@@ -43,7 +43,7 @@
 
 // console.log(hello.split("").reverse().join(""));
 
-const kdtCurriculum = ["HTML", "CSS", "JS", "BACKEND", "REACT"];
+const kdtCurriculum = ["HTML", "CSS", "JS", "BACKEND", "REAC"];
 const result1 = kdtCurriculum.shift().split("").reverse().join("");
 const result2 = kdtCurriculum.pop().split("").reverse().join("");
 console.log(result1);
