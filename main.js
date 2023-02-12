@@ -48,3 +48,14 @@ const result1 = kdtCurriculum.shift().split("").reverse().join("");
 const result2 = kdtCurriculum.pop().split("").reverse().join("");
 console.log(result1);
 console.log(result2);
+
+// const fs = require('fs');
+// const input = fs.readFileSync('/dev/stdin').toString().split(' ');
+
+// const A = parseInt(input[0], 10);
+// const B = parseInt(input[1], 10);
+
+const A = 1;
+const B = 2;
+
+console.log(A + B);
