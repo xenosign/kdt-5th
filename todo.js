@@ -5,4 +5,5 @@ function addList() {
   todo.innerText = "11";
   list.appendChild(todo);
   console.log("!!");
+  console.log("!!");
 }
