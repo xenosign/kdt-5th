@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- JAVASCRIPT -->
+    <!-- SWIPER -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- MAIN JAVASCRIPT -->
+    <script>
+      const swiperNotice = new Swiper(".swiper", {
+        loop: true,
+        slidesPerView: 5,
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .main {
+        /* 세로로 미리 커질 만큼 크기를 확보 */
+        height: 300px;
+        width: 100vw;
+        background-color: orange;
+      }
+
+      .swiper-zone {
+        /* 세로로 미리 커질 만큼 크기를 확보 */
+        height: 300px;
+        width: 100vw;
+        background-color: skyblue;
+        display: flex;
+        align-items: center;
+      }
+
+      .swiper-slide {
+        /* 화면에 보이는 슬라이드가 5장이므로 넓이를 20vw 로 부여 */
+        width: 20vw;
+        height: 300px;
+        transition: 1s;
+        overflow: visible;
+        /* overflow 는 무조건 잘리므로 미리 커질 공간만큼 padding 값을 주어서 slide 영역을 더 크게 잡기 */
+        /* 200px 크기를 1.5배 할 것이므로 위아래로 50px 씩 공간을 주면 300px 크기 만큼 보유 */
+        padding: 50px 0px;
+      }
+
+      /* 실제 컨텐츠는 slide 안에 다른 div 요소에 배치 -> 그래야 slide 가 미리 확보한 영역 만큼 키울 수 있으므로 */
+      .item:hover {
+        /* 포지션이 없으면 z-index 규율이 안먹히므로 포지션 값 부여 */
+        /* 호버시 옆에 애보다 위에 보이게 하려는 조치 */
+        position: relative;
+        transform: scale(1.5);
+        z-index: 999;
+      }
+
+      .item {
+        position: relative;
+        width: 20vw;
+        height: 200px;
+        background-color: red;
+        transition: 0.5s;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main"></section>
+    <section class="swiper-zone">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
