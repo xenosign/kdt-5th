@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
+    <style>
+      div::after {
+        content: "11";
+      }
+      div::before {
+        content: "22";
+      }
+    </style>
   </head>
   <body>
+    <div></div>
     <ul>
       <li>메뉴1</li>
       <li>메뉴2</li>
@@ -15,4 +24,9 @@
       <li>메뉴4</li>
     </ul>
   </body>
+  <script>
+    var str = window.getComputedStyle(document.querySelector("div"), ":before");
+
+    console.log(str);
+  </script>
 </html>
