@@ -48,15 +48,43 @@
 
 // multiplication(3, say);
 
-function buySync(item, price, quantity, callback) {
-  console.log(`${item} 상품을 ${quantity} 개 골라서 점원에게 주었습니다.`);
-  setTimeout(() => {
-    console.log("계산이 필요합니다.");
-    const total = price * quantity;
-    callback(total);
-  }, 1000);
+// function buySync(item, price, quantity, callback) {
+//   console.log(`${item} 상품을 ${quantity} 개 골라서 점원에게 주었습니다.`);
+//   setTimeout(function () {
+//     console.log("계산이 필요합니다.");
+//     const total = price * quantity;
+//     callback(total);
+//   }, 1000);
+// }
+// function pay(tot) {
+//   console.log(`${tot} 원을 지불하였습니다.`);
+// }
+// buySync("포켓몬빵", 1000, 5, pay);
+
+function funcHell(callback) {
+  callback();
 }
-function pay(tot) {
-  console.log(`${tot} 원을 지불하였습니다.`);
-}
-buySync("포켓몬빵", 1000, 5, pay);
+
+funcHell(function () {
+  console.log("1번 인척하는 새로 만든 익명 함수!");
+  funcHell(function () {
+    console.log("2번 인척하는 새로 만든 익명 함수!");
+    funcHell(function () {
+      console.log("3번 인척하는 새로 만든 익명 함수!");
+    });
+  });
+});
+
+// function funcHell(callback) {
+//   callback();
+// }
+
+// funcHell(function () {
+//   console.log("1번 콜백");
+//   funcHell(function () {
+//     console.log("2번 콜백");
+//     funcHell(function () {
+//       console.log("3번 콜백");
+//     });
+//   });
+// });
