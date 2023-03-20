@@ -9,47 +9,46 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-// async function main() {
-//   await client.connect();
-
-//   const users = client.db("kdt5").collection("users");
-
-//   const deleteResult = await users.deleteMany({});
-//   if (!deleteResult.acknowledged) return "삭제 에러 발생";
-
-//   const insertResult = await users.insertOne({
-//     name: "tetz",
-//     nickName: "chickenHead",
+// client.connect((err) => {
+//   const test = client.db("kdt5").collection("test");
+//   test.deleteMany({}, (deleteErr, deleteResult) => {
+//     if (deleteErr) throw deleteErr;
+//     test.insertOne(
+//       {
+//         name: "pororo",
+//         age: 5,
+//       },
+//       (insertErr, insertResult) => {
+//         if (insertErr) throw insertErr;
+//         console.log(insertResult);
+//       }
+//     );
 //   });
-//   if (!insertResult.acknowledged) return "삽입 에러 발생";
+// });
 
-//   const userCursor = users.find({
-//     name: "loopy",
-//   });
-//   const data = await userCursor.toArray();
-//   console.log(data);
-
-//   client.close();
-// }
-
-// main();
-
-client.connect((err) => {
+async function main() {
+  await client.connect();
   const test = client.db("kdt5").collection("test");
-  test.deleteMany({}, (err) => {
-    test.insertOne(
-      {
-        name: "tetz",
-        nickName: "chickenHead",
-      },
-      (err, result) => {
-        if (result.acknowledged) {
-          const findData = test.find({});
-          findData.toArray((err, data) => {
-            console.log(data);
-          });
-        }
-      }
-    );
-  });
-});
+
+  const deleteAllResult = await test.deleteMany({});
+  if (!deleteAllResult.acknowledged) return "삭제 에러 발생";
+
+  const insertResult = await test.insertMany([
+    { name: "pororo", age: 5 },
+    { name: "loopy", age: 6 },
+    { name: "crong", age: 4 },
+  ]);
+  if (!insertResult.acknowledged) return "삽입 에러 발생";
+
+  const updateOneResult = await test.updateOne(
+    { name: "loopy" },
+    { $set: { name: "루피" } }
+  );
+
+  if (!updateOneResult.acknowledged) return "수정 에러 발생";
+  console.log(updateOneResult);
+
+  client.close();
+}
+
+main();
