@@ -5,8 +5,7 @@ import ClassState from "./components/ClassState";
 function App() {
   return (
     <div className="App">
-      <ClassState />
-      <ClassState />
+      <ClassState />      
     </div>
   );
 }
